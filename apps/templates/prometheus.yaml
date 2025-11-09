@@ -25,17 +25,11 @@ spec:
       releaseName: prometheus
       valuesObject:
         prometheus:
-          prometheusSpec:
-            storageSpec:
-              volumeClaimTemplate:
-                spec:
-                  storageClassName: local-path
-                  accessModes: ["ReadWriteOnce"]
-                  resources:
-                    requests:
-                      storage: 50Gi
         server:
           service:
             type: NodePort
+          persistentVolume:
+            enabled: true
+            storageClass: local-path
         alertmanager:
           enabled: false
