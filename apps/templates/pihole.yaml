@@ -38,6 +38,9 @@ spec:
         serviceDns:
           # combine the TCP and UDP services
           mixedService: true
+        
+        serviceWeb:
+          type: NodePort
 
         # we won't need that
         serviceDhcp:
