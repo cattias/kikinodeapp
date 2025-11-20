@@ -24,8 +24,8 @@ spec:
     helm:
       releaseName: pihole
       valuesObject:
-        DNS1: 9.9.9.9
-        DNS2: 1.1.1.1
+        # DNS1: 9.9.9.9
+        # DNS2: 1.1.1.1
 
         persistentVolumeClaim:
           enabled: true
@@ -38,6 +38,9 @@ spec:
         serviceDns:
           # combine the TCP and UDP services
           mixedService: true
+        
+        serviceWeb:
+          type: NodePort
 
         # we won't need that
         serviceDhcp:
@@ -49,20 +52,3 @@ spec:
           nameservers:
           - 127.0.0.1
           - 9.9.9.9
-
-        ingress:
-          # -- Generate a Ingress resource
-          enabled: true
-
-          # -- Specify an ingressClassName
-          ingressClassName: nginx
-
-          # -- Annotations for the ingress
-          annotations: {}
-            # kubernetes.io/ingress.class: nginx
-            # kubernetes.io/tls-acme: "true"
-          path: /
-          pathType: ImplementationSpecific
-          hosts:
-            # virtualHost (default value is pi.hole) will be appended to the hosts
-            - kiki.local
