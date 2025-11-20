@@ -22,7 +22,10 @@ spec:
             - name: FTLCONF_dns_listeningMode
               value: ALL
             - name: FTLCONF_webserver_api_password
-              value: correct horse battery staple
+              valueFrom:
+                secretKeyRef:
+                  name: pihole-secret
+                  key: password
             - name: TZ
               value: Europe/Paris
           image: pihole/pihole:latest
