@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pihole
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+  destination:
+    namespace: pihole
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: pihole
+    repoURL: https://github.com/cattias/kikinodeapp
+    targetRevision: HEAD
