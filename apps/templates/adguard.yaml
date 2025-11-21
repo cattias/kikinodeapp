@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adguard
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+  destination:
+    namespace: adguard
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: adguard-home
+    repoURL: https://k8s-at-home.com/charts/
+    targetRevision: 5.5.2
+    helm:
+      releaseName: adguard-home
