@@ -23,3 +23,13 @@ spec:
     targetRevision: 5.5.2
     helm:
       releaseName: adguard-home
+      valuesObject:
+        persistence:
+          config:
+            enabled: true
+            mountPath: /opt/adguardhome/conf
+            storageClass: local-path
+          data:
+            enabled: true
+            mountPath: /opt/adguardhome/work
+            storageClass: local-path
