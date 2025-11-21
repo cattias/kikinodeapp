@@ -29,7 +29,11 @@ spec:
             enabled: true
             mountPath: /opt/adguardhome/conf
             storageClass: local-path
+            accessModes:
+              - ReadWriteOnce
           data:
             enabled: true
             mountPath: /opt/adguardhome/work
             storageClass: local-path
+            accessModes:
+              - ReadWriteOnce
