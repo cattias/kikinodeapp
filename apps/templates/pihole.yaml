@@ -26,7 +26,7 @@ spec:
       valuesObject:
         persistentVolumeClaim:
           enabled: true
-          storageClassName: local-path
+          storageClass: local-path
 
         admin:
           # use the secret we just created 
