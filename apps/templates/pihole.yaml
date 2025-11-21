@@ -24,9 +24,6 @@ spec:
     helm:
       releaseName: pihole
       valuesObject:
-        # DNS1: 9.9.9.9
-        # DNS2: 1.1.1.1
-
         persistentVolumeClaim:
           enabled: true
           storageClassName: local-path
@@ -35,20 +32,28 @@ spec:
           # use the secret we just created 
           existingSecret: "pihole-secret"
 
-        serviceDns:
-          # combine the TCP and UDP services
-          mixedService: true
-        
-        serviceWeb:
-          type: NodePort
-
-        # we won't need that
-        serviceDhcp:
-          enabled: false
-
-        podDnsConfig:
+        # will create kubernees ingress
+        ingress:
           enabled: true
-          policy: "None"
-          nameservers:
-          - 127.0.0.1
-          - 9.9.9.9
+          hosts:
+          - pihole.kiki.local
+
+        # will create kubernetes services for web admin
+        serviceWeb:
+          loadBalancerIP: 192.168.178.34
+          type: ClusterIP
+        
+        # create a kubernetes service and expose
+        # port 53 outside of cluster on the local network
+        serviceDns:
+          loadBalancerIP: 192.168.178.34
+          type: LoadBalancer
+          
+        # enables cloudflare tunnel sidecar container
+        # and sets upstream dns in pihole to leverage it
+        doh:
+          enabled: true
+          pullPolicy: Always
+          envVars: {
+            DOH_UPSTREAM: "https://1.1.1.1/dns-query"
+          }
