@@ -28,8 +28,8 @@ spec:
           enabled: false
         prometheus:
           service:
-            nodePort: 30090
-            type: NodePort
+            port: 80
+            type: LoadBalancer
           prometheusSpec:
             storageSpec:
               volumeClaimTemplate:

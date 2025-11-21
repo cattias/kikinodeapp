@@ -47,7 +47,7 @@ spec:
       valuesObject:
         kong:
           proxy:
-            type: NodePort
+            type: LoadBalancer
 ---
 apiVersion: v1
 kind: ServiceAccount
