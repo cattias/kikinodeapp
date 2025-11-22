@@ -29,7 +29,7 @@ spec:
         prometheus:
           service:
             port: 80
-            type: LoadBalancer
+            type: ClusterIP
           prometheusSpec:
             storageSpec:
               volumeClaimTemplate:

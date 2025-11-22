@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus-router
+  namespace: monitoring
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`prometheusnode.attias.io`)
+      kind: Rule
+      services:
+        - name: kube-prometheus-stack-prometheus
+          port: 80
+  tls:
+    certResolver: le
