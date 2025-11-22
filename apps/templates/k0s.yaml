@@ -46,8 +46,11 @@ spec:
       releaseName: kubernetes-dashboard
       valuesObject:
         kong:
+          enabled: true
           proxy:
-            type: LoadBalancer
+            type: ClusterIP
+            http:
+              enabled: true
 ---
 apiVersion: v1
 kind: ServiceAccount
