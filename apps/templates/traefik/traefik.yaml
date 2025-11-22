@@ -97,4 +97,4 @@ spec:
                 delayBeforeCheck: 0
         persistence:
           enabled: true
-          existingClaim: traefik-data-pvc
+          storageClass: local-path
