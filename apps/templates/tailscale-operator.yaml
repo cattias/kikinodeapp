@@ -34,6 +34,6 @@ spec:
   hostnamePrefix: ts-pod-cidrs
   subnetRouter:
     advertiseRoutes:
-      - "192.168.178.0/24"
+      - "192.168.0.0/16"
       - "10.244.0.0/24"
       - "10.96.0.0/12"
