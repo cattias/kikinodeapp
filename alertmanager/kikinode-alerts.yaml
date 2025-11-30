@@ -25,4 +25,4 @@ spec:
         severity: warning
       annotations:
         summary: Persistent Volume {{ $labels.persistentvolumeclaim }} is filling up ({{ $value }}% remaining).
-        description: PVC is running out of space. Check your NFS/Ceph capacity.
+        description: PVC is running out of space. Check your disk capacity.
