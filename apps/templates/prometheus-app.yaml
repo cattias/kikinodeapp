@@ -19,5 +19,5 @@ spec:
   project: default
   source:
     path: kube-prometheus-stack
-    repoURL: https://github.com/cattias/kikiselfhosted
+    repoURL: https://github.com/cattias/kikinodeapp
     targetRevision: HEAD
