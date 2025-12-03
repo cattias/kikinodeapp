@@ -8,8 +8,9 @@ metadata:
 spec:
   syncPolicy:
     automated:
-      prune: true
       enabled: true
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
