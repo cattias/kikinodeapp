@@ -38,7 +38,7 @@ spec:
           - address=/nas.kiki.home/192.168.178.33
           - address=/offsite.kiki.home/100.114.250.7
           - address=/kiki.server/server.kiki.home/192.168.178.69
-          - address=/kiki.vps/91.98.236.199
+          - address=/plex.attias.io/photos.attias.io/overseerr.attias.io/kiki.vps/91.98.236.199
           - address=/traefiknode.attias.io/k0snode.attias.io/argocdnode.attias.io/prometheusnode.attias.io/alertmanagernode.attias.io/192.168.178.103
           - address=/obs.attias.io/traefik.attias.io/k0s.attias.io/argocd.attias.io/attias.io/sonarr.attias.io/sabnzbd.attias.io/radarr.attias.io/prowlarr.attias.io/metube.attias.io/www.attias.io/ceph.attias.io/prometheus.attias.io/alertmanager.attias.io/home.attias.io/bazarr.attias.io/tautulli.attias.io/paperless.attias.io/vault.attias.io/recettes.attias.io/budget.attias.io/deemix.attias.io/beets.attias.io/192.168.178.200
 
