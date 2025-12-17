@@ -27,21 +27,16 @@ spec:
       valuesObject:
         oauth:
           # The Client ID the operator will authenticate with.
-          - name: clientId
+          clientId:
             valueFrom:
               secretKeyRef:
                 name: operator-oauth
                 key: client_id
-          # If set a Kubernetes Secret with the provided value will be created in
-          # the operator namespace, and mounted into the operator Pod. Takes precedence
-          # over oauth.audience.
-          - name: clientSecret
+          clientSecret:
             valueFrom:
               secretKeyRef:
                 name: operator-oauth
                 key: client_secret
-
-
 ---
 apiVersion: tailscale.com/v1alpha1
 kind: Connector
