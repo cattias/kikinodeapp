@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`k0snode.attias.io`)
+    - match: Host(`k0s.node.attias.io`)
       kind: Rule
       services:
         - name: kubernetes-dashboard-kong-proxy

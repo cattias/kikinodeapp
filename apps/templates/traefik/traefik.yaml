@@ -65,7 +65,7 @@ spec:
         ingressRoute:
           dashboard:
             enabled: true
-            matchRule: Host(`traefiknode.attias.io`)
+            matchRule: Host(`traefik.node.attias.io`)
             entryPoints: ["websecure"]
             tls:
               certResolver: le

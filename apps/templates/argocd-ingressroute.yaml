@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`argocdnode.attias.io`)
+    - match: Host(`argocd.node.attias.io`)
       kind: Rule
       services:
         - name: argocd-server
