@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`alertmanagernode.attias.io`)
+    - match: Host(`alertmanager.node.attias.io`)
       kind: Rule
       services:
         - name: kube-prometheus-stack-alertmanager
