@@ -3,3 +3,8 @@ sudo apt install unattended-upgrades -y
 sudo dpkg-reconfigure -plow unattended-upgrades
 sudo vi /etc/apt/apt.conf.d/20auto-upgrades
 sudo vi /etc/apt/apt.conf.d/50unattended-upgrades
+
+# Add kikivault repo
+argocd repo add https://github.com/cattias/kikinodevault.git --username token --password GIT_TOKEN_ARGOCD
+# Create Secret
+argocd sync https://github.com/cattias/kikinodevault.git
