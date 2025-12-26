@@ -30,11 +30,9 @@ spec:
             - mountPath: /etc/os-release
               name: os-release-hp
               readOnly: true
-              subPath: os-release
             - mountPath: /var/run/docker.sock
               name: docker-sock-hp
               readOnly: true
-              subPath: docker.sock
       restartPolicy: Always
       volumes:
         - name: os-release-hp
