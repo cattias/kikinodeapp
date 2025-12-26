@@ -35,6 +35,18 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
+        "/glances/glances-deployment\\.yaml/"
+      ],
+      "matchStrings": [
+        "name:\\s*monitoring\\s*\\n\\s*image:\\s*nicolargo\\/glances:\\s*(?<currentValue>v?[0-9\\.]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "alexta69/metube",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
         "/apps/templates/cert-manager/cert-manager\\.yaml/"
       ],
       "matchStrings": [

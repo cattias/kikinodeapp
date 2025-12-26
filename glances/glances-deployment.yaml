@@ -22,7 +22,7 @@ spec:
             - name: GLANCES_OPT
               value: -w
           name: monitoring
-          image: nicolargo/glances:latest
+          image: nicolargo/glances:4.4.1
           ports:
             - containerPort: 61208
               protocol: TCP
