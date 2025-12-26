@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glances
+  namespace: monitoring
+  labels:
+    app.kubernetes.io/name: glances
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: glances
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: glances
+    spec:
+      containers:
+        - env:
+            - name: GLANCES_OPT
+              value: -w
+          name: monitoring
+          image: nicolargo/glances:latest
+          ports:
+            - containerPort: 61208
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /etc/os-release
+              name: os-release-hp
+              readOnly: true
+              subPath: os-release
+            - mountPath: /var/run/docker.sock
+              name: docker-sock-hp
+              readOnly: true
+              subPath: docker.sock
+      restartPolicy: Always
+      volumes:
+        - name: os-release-hp
+          hostPath:
+            path: "/etc/os-release"
+        - name: docker-sock-hp
+          hostPath:
+            path: "/var/run/docker.sock"

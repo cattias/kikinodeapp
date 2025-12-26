@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: glances-router
+  namespace: monitoring
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`glances.node.attias.io`)
+      kind: Rule
+      services:
+        - name: glances
+          port: 61208
+  tls:
+    certResolver: le
