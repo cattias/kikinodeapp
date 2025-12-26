@@ -41,7 +41,7 @@
         "name:\\s*monitoring\\s*\\n\\s*image:\\s*nicolargo\\/glances:\\s*(?<currentValue>v?[0-9\\.]+)"
       ],
       "datasourceTemplate": "docker",
-      "depNameTemplate": "alexta69/metube",
+      "depNameTemplate": "nicolargo/glances",
       "versioningTemplate": "semver"
     },
     {
