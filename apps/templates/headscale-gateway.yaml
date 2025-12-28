@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: headscale-gateway
+  namespace: tailscale
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: headscale-gateway
+  template:
+    metadata:
+      labels:
+        app: headscale-gateway
+    spec:
+      containers:
+      - name: tailscale
+        image: tailscale/tailscale:latest
+        imagePullPolicy: Always
+        env:
+        - name: TS_AUTHKEY
+          valueFrom:
+            secretKeyRef:
+              name: operator-oauth
+              key: ts_authkey
+        - name: TS_EXTRA_ARGS
+          value: "--login-server https://tailscale.attias.io --advertise-routes=192.168.0.0/16,10.244.0.0/24,10.96.0.0/12"
+        - name: TS_STATE_DIR
+          value: /var/lib/tailscale
+        securityContext:
+          capabilities:
+            add: ["NET_ADMIN"]
+        volumeMounts:
+        - name: tailscale-data
+          mountPath: /var/lib/tailscale
+      volumes:
+      - name: tailscale-data
+        persistentVolumeClaim:
+          claimName: headscale-gw-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: headscale-gw-pvc
+  namespace: tailscale
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 1Gi
