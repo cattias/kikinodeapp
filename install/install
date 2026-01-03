@@ -17,7 +17,7 @@ sudo systemctl enable tailscale-eth-tuning.service
 # Start it now to apply the settings immediately
 sudo systemctl start tailscale-eth-tuning.service
 # check
-ethtool -k eth0 | grep -E "rx-udp-gro-forwarding|rx-gro-list"
+ethtool -k enp1s0 | grep -E "rx-udp-gro-forwarding|rx-gro-list"
 
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --login-server=https://tailscale.attias.io --advertise-routes=192.168.178.0/24 --accept-dns=false
