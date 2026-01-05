@@ -17,8 +17,10 @@ echo "🛑 Stopping k0s..."
 sudo k0s stop
 
 echo "♻️ Rebooting now..."
+sync
 sudo reboot
 
 # after reboot
 kubectl uncordon kikiflix-ubuntu
 kubectl -n argocd scale statefulset/argocd-application-controller --replicas=1
+sudo systemctl restart tailscaled

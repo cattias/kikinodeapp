@@ -22,3 +22,8 @@ ethtool -k enp1s0 | grep -E "rx-udp-gro-forwarding|rx-gro-list"
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --login-server=https://tailscale.attias.io --advertise-routes=192.168.178.0/24 --accept-dns=false
 sudo tailscale set --auto-update=true
+sudo systemctl edit tailscaled
+# add these lines in TOML
+[Unit]
+After=k0s.service
+Wants=k0s.service
