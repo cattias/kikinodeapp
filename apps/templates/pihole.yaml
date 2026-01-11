@@ -73,3 +73,12 @@ spec:
           annotations:
             metallb.universe.tf/allow-shared-ip: pihole-svc
           type: LoadBalancer
+
+        extraVolumes: 
+          - name: shm-volume
+            emptyDir:
+              medium: Memory
+              sizeLimit: 256Mi
+        extraVolumeMounts:
+          - name: shm-volume
+            mountPath: /dev/shm
