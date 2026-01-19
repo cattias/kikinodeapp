@@ -41,8 +41,8 @@ spec:
                 app.kubernetes.io/name: authentik-outpost
         spec:
             containers:
-                - image: ghcr.io/goauthentik/proxy:2025.12.1
-                  name: proxy
+                - name: proxy
+                  image: ghcr.io/goauthentik/proxy:2025.12.1
                   ports:
                       - containerPort: 9000
                         name: http
