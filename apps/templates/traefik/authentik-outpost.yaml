@@ -28,6 +28,7 @@ metadata:
         app.kubernetes.io/instance: external-outpost
         app.kubernetes.io/name: authentik-outpost
     name: authentik-outpost
+    namespace: authentik
 spec:
     selector:
         matchLabels:
