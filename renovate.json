@@ -35,6 +35,18 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
+        "/apps/templates/traefik/authentik-outpost\\.yaml/"
+      ],
+      "matchStrings": [
+        "name:\\s*proxy\\s*\\n\\s*image:\\s*ghcr\\.io\\/goauthentik\\/proxy:\\s*(?<currentValue>v?[0-9\\.]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "ghcr.io/goauthentik/proxy",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
         "/apps/templates/cert-manager/cert-manager\\.yaml/"
       ],
       "matchStrings": [
