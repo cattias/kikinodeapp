@@ -15,7 +15,7 @@ spec:
         - name: internal-only
           namespace: traefik
       services:
-        - name: glances
+        - name: speedtest
           port: 8765
     - match: Host(`speedtest.node.attias.io`)
       kind: Rule
