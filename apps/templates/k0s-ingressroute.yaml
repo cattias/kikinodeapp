@@ -10,7 +10,7 @@ spec:
     - match: Host(`k0s.node.attias.io`)
       kind: Rule
       services:
-        - name: kubernetes-dashboard-web
-          port: 8000
+        - name: kubernetes-dashboard-kong-proxy
+          port: 80
   tls:
     certResolver: le
