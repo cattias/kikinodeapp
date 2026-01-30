@@ -35,6 +35,29 @@ spec:
             externalSecret:
               enabled: false
               name: "headlamp-oidc"
+        clusterRoleBinding:
+          create: false
+        env:
+          - name: OIDC_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: clientID
+          - name: OIDC_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: clientSecret
+          - name: OIDC_ISSUER_URL
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: issuerURL
+          - name: OIDC_SCOPES
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: scopes
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
