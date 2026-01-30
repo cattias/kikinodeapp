@@ -35,19 +35,6 @@ spec:
             externalSecret:
               enabled: true
               name: headlamp-oidc
-            # clientID:
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: headlamp-oidc
-            #       key: clientID
-            # clientSecret: 
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: headlamp-oidc
-            #       key: clientSecret
-            # issuerURL: https://authentik.attias.io/application/o/headlamp-node/
-            # scopes: openid,profile,email
-            # callbackURL: https://headlamp.node.attias.io/oidc-callback
         clusterRoleBinding:
           create: false
 ---
