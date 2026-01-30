@@ -25,6 +25,27 @@ spec:
     helm:
       releaseName: headlamp
       valuesObject:
+        env:
+          - name: OIDC_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: clientID
+          - name: OIDC_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: clientSecret
+          - name: OIDC_ISSUER_URL
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: issuerURL
+          - name: OIDC_SCOPES
+            valueFrom:
+              secretKeyRef:
+                name: headlamp-oidc
+                key: scopes
         config:
           inCluster: true
           inClusterContextName: "kikinode"
