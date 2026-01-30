@@ -28,7 +28,7 @@ spec:
         config:
           inCluster: true
           inClusterContextName: "kikinode"
-          baseURL: "https://headlamp.node.attias.io"
+          baseURL: ""
           oidc:
             secret:
               # -- Generate OIDC secret. If true, will generate a secret using .config.oidc.
