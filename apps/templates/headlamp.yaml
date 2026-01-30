@@ -31,10 +31,10 @@ spec:
           baseURL: ""
           oidc:
             secret:
-              # -- Generate OIDC secret. If true, will generate a secret using .config.oidc.
               create: false
-              # -- Name of the OIDC secret.
-              name: headlamp-oidc
+            externalSecret:
+              enabled: false
+              name: "headlamp-oidc"
 ---
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
