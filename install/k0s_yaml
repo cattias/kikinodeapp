@@ -1,0 +1,15 @@
+apiVersion: k0s.k0sproject.io/v1beta1
+kind: ClusterConfig
+metadata:
+  name: k0s
+  namespace: kube-system
+spec:
+  workerProfiles:
+  - name: heavy-nodes
+    values:
+      maxPods: 200
+  api:
+    extraArgs:
+      oidc-issuer-url: https://authentik.attias.io/application/o/headlamp-node/
+      oidc-client-id: HaKRlYUGcjekZDeP4kFRPaXFtuHBM0cfnb2JRG6g
+      oidc-username-claim: email
