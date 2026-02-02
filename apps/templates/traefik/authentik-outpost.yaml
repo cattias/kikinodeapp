@@ -30,6 +30,7 @@ metadata:
     name: authentik-outpost
     namespace: authentik
 spec:
+    revisionHistoryLimit: 1
     selector:
         matchLabels:
             app.kubernetes.io/instance: external-outpost
