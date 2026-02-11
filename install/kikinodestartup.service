@@ -1,0 +1,13 @@
+[Unit]
+Description=Restore K8s workloads
+After=k0scontroller.service
+Requires=k0scontroller.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/safe_startup.sh
+ExecStartPre=/bin/sleep 30
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target
