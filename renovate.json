@@ -63,7 +63,10 @@
       "/\\.yaml$/"
     ],
     "ignorePaths": [
-      "**/cert-manager/**"
+      "apps/templates/cert-manager/cert-manager\\.yaml",
+      "apps/templates/speed\\.yaml",
+      "apps/templates/glances-app\\.yaml",
+      "apps/templates/prometheus-app\\.yaml"
     ]
   }
 }
